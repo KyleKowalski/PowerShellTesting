@@ -20,8 +20,9 @@ function randomLog ($logMessage) {
     write-output $logMessage | out-file $outputFile -append
 }
 
-pushPowerShell('testing auto download')
 #randomLog("1234")
+
+pushPowerShell("additional changes on the update from github");
 
 # via command line (powershell):
 # powershell -command "& { . .\TestSync.ps1; randomLog '5678'}"
