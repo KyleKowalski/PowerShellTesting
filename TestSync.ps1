@@ -20,10 +20,12 @@ function randomLog ($logMessage) {
     write-output $logMessage | out-file $outputFile -append
 }
 
-#randomLog("1234")
+# randomLog("1234")
+# pushPowerShell("additional changes on the update from github");
 
-pushPowerShell("additional changes on the update from github");
+# powershell -command "& { . .\TestSync.ps1; pushPowerShell 'local repo pushing changes'}"
+
 
 # via command line (powershell):
 # powershell -command "& { . .\TestSync.ps1; randomLog '5678'}"
-### the additional dot     ^   is to scope this part ^^^^^ to the current script
+### the additional dot ->  ^  <- is to scope this ^^^^^^^^^ to the current script
