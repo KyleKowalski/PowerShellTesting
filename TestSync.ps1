@@ -12,6 +12,9 @@ $outputFile = "C:\PowerShellTestingGround\PowerShellLogs\Test-log.txt"
 $commitMessage = "initial testing, weeee!"
 
 git status | out-file $outputFile
+git fetch | out-file $outputFile -append
+git pull | out-file $outputFile -append
+git status | out-file $outputFile -append
 git add .  | out-file $outputFile -append
 git commit -m "$commitMessage" | out-file $outputFile -append
 git status  | out-file $outputFile -append
