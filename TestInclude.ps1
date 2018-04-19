@@ -1,4 +1,13 @@
-. "C:\PowerShellTestingGround\PowerShellTesting\TestSync.ps1"
+$includeFile = "C:\PowerShellTestingGround\PowerShellTesting\ReferenceScripts\TestSync.ps1"
+if(Test-Path $includeFile) {
+    . $includeFile
+    write-host "cool"
+}
+else {
+    # throw error
+    write-host "oops"
+    Write-Output "Unable to find $includeFile" #| add logging
+}
 
 # What I'd like to do here is get a standard set of functions that we include in all of the other files.
 # This is following the idea of DRY coding (Don't Repeat Yourself) 
