@@ -1,12 +1,17 @@
-$includeFile = "C:\PowerShellTestingGround\PowerShellTesting\ReferenceScripts\TestSync.ps1"
-if(Test-Path $includeFile) {
-    . $includeFile
-    write-host "cool"
-}
-else {
-    # throw error
-    write-host "oops"
-    Write-Output "Unable to find $includeFile" #| add logging
+$includeFiles = @()
+$includeFiles += "C:\PowerShellTestingGround\PowerShellTesting\ReferenceScripts\TestSync.ps1"
+$includeFiles += "C:\PowerShellTestingGround\PowerShellTesting\ReferenceScripts\TestLogging.ps1"
+
+ForEach ($includedFile in $includeFiles) {
+    if(Test-Path $includedFile) {
+        . $includedFile
+        write-host "cool, we added:  '$includedFile'"
+    }
+    else {
+        # log an error
+        Write-Output "Error In Script:  $MyInvocation.MyCommand.Name"
+        Write-Output "Unable to find include file:  '$includedFile'" #| add logging
+    }
 }
 
 # What I'd like to do here is get a standard set of functions that we include in all of the other files.
